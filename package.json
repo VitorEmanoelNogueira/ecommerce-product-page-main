@@ -1,0 +1,24 @@
+{
+  "name": "ecommerce-product-page-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorEmanoelNogueira/ecommerce-product-page-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VitorEmanoelNogueira/ecommerce-product-page-main/issues"
+  },
+  "homepage": "https://github.com/VitorEmanoelNogueira/ecommerce-product-page-main#readme",
+  "devDependencies": {
+    "sass": "^1.103.1"
+  }
+}
