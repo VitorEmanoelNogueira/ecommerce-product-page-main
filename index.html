@@ -86,7 +86,6 @@
         <button 
         type="button" 
         class="c-cart__button" 
-        aria-label="Open cart, cart is empty" 
         popovertarget="cart-popover">
           <svg 
           class="c-cart__icon" 
@@ -97,30 +96,153 @@
           xmlns="http://www.w3.org/2000/svg">
           <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/></svg>
 
-          <span class="c-cart__counter" aria-hidden="true"></span>
+          <span class="u-sr-only">Open Shopping Cart, <span data-cart-items>Cart is empty</span></span>
+          <span class="c-cart__counter" aria-hidden="true" data-cart-counter></span>
         </button>
 
         <dialog id="cart-popover" class="c-cart__popover" popover aria-label="Cart"></dialog>
       </div>
-      
+
       <a href="#" class="c-header__profile">
-        <img class="c-header__profile-picture" src="images/image-avatar.png" alt="Profile">
+        <img class="c-header__profile-picture" src="images/image-avatar.png" alt="Profile" width="100" height="100">
       </a>
     </div>
   </header>
-  Sneaker Company
 
-  Fall Limited Edition Sneakers
+  <main id="main-content" class="c-product">
+    <section class="c-product__gallery c-product-gallery" aria-label="Product Image Gallery">
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
+      <div class="c-product-gallery__current-slide" aria-live="polite" aria-atomic="true">
+        <p class="u-sr-only" data-gallery-status>Image 1 of 4</p>
 
-  $125.00
-  50%
-  $250.00
+        <img class="c-product-gallery__mobile-image" src="./images/image-product-1.jpg" alt="A pair of white and tan Fall Limited Edition Sneakers with orange heel tabs, one with its beige sole facing the viewer, displayed on a two-tone orange and burlywood background." width="1000" height="1000">
 
-  0
-  Add to cart
+        <button 
+        class="c-product-gallery__open-lightbox" 
+        aria-controls="gallery-lightbox">
+
+          <span class="u-sr-only">Open Image in a lightbox:</span>
+        
+          <img class="c-product-gallery__desktop-image" src="./images/image-product-1.jpg" alt="A pair of white and tan Fall Limited Edition Sneakers with orange heel tabs, one with its beige sole facing the viewer, displayed on a two-tone orange and burlywood background." width="1000" height="1000">
+        </button>
+      </div>
+
+      <div class="c-product-gallery__controls">
+        <button 
+        type="button" 
+        class="c-product-gallery__button" 
+        aria-label="Previous image">
+          <svg 
+          class="c-product-gallery__button-icon" 
+          aria-hidden="true" 
+          width="12" 
+          height="18" 
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+
+        <button 
+        type="button" 
+        class="c-product-gallery__button" 
+        aria-label="Next image">
+          <svg 
+          class="c-product-gallery__button-icon" 
+          aria-hidden="true" 
+          width="13" 
+          height="18" 
+          viewBox="0 0 13 18" 
+          xmlns="http://www.w3.org/2000/svg">
+            <path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+        </button>
+      </div>
+
+      <div class="c-product-gallery__thumbs" role="group" aria-label="Select a gallery image">
+        <button 
+        class="c-product-gallery__thumb" 
+        aria-label="Show Image 1"
+        aria-pressed="true">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="" width="176" height="176">
+        </button>
+
+        <button 
+        class="c-product-gallery__thumb" 
+        aria-label="Show Image 2"
+        aria-pressed="false">
+          <img src="./images/image-product-2-thumbnail.jpg" alt="" width="176" height="176">
+        </button>
+
+        <button 
+        class="c-product-gallery__thumb" 
+        aria-label="Show Image 3"
+        aria-pressed="false">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="" width="176" height="176">
+        </button>
+
+        <button 
+        class="c-product-gallery__thumb" 
+        aria-label="Show Image 4"
+        aria-pressed="false">
+          <img src="./images/image-product-4-thumbnail.jpg" alt="" width="176" height="176">
+        </button>
+      </div>
+    </section>
+
+    <section class="c-product__details">
+      <p class="c-product__company">Sneaker Company</p>
+      <h1 class="c-product__name">Fall Limited Edition Sneakers</h1>
+      <p class="c-product__description">
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+      <div class="c-product__prices">
+        <p class="c-product__actual-price">
+          <span class="u-sr-only">Actual Price:</span> $125.00 
+          <span class="c-product__promotion-tag" aria-hidden="true">50%</span>
+          <span class="u-sr-only">with a 50% discount.</span>
+        </p>
+        <p class="c-product__full-price"><span class="u-sr-only">Original Price: </span>$250.00</p>
+      </div>
+
+      <form class="c-product__cart-actions">
+
+        <fieldset class="c-product__quantity c-quantity">
+          <legend class="u-sr-only">Select Product Quantity</legend>
+
+          <p class="u-sr-only" role="status" data-quantity-status></p>
+
+          <button type="button" class="c-quantity__button" aria-label="Decrease Quantity">
+            <svg
+            class="c-quantity__button-icon"
+            aria-hidden="true"
+            width="12"
+            height="4"
+            viewBox="0 0 12 4"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" id="a"/></defs><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a"/></svg>
+          </button>
+
+          <label class="u-sr-only" for="quantity">Quantity: </label>
+          <input class="c-quantity__number" type="number" name="quantity" id="quantity" min="0" value="0">
+
+          <button type="button" class="c-quantity__button" aria-label="Increase Quantity">
+            <svg
+            class="c-quantity__button-icon"
+            aria-hidden="true"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" id="b"/></defs><use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b"/></svg>
+          </button>
+        </fieldset>
+
+        <button type="submit" class="c-product__submit-quantity">Add to cart</button>
+      </form>
+
+      <p class="u-sr-only" role="status" data-form-status></p>
+          
+    </section>
+  </main>
   
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
