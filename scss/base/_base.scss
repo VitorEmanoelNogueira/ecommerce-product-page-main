@@ -1,0 +1,23 @@
+body{
+    min-height: 100svh;
+    font: normal 1rem/1.5 "Kumbh Sans", sans-serif;
+    color: var(--color-grayish-blue);
+}
+
+img, svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
