@@ -1,0 +1,99 @@
+@use '../abstracts' as a;
+
+.c-product-gallery{
+    width: fit-content;
+
+    &__main{
+        position: relative;
+    }
+
+    &__mobile-image{
+        max-height: 18.75rem;
+        object-fit: cover;
+    }
+
+    &__desktop-image{
+        width: 27.812rem;
+        border-radius: 0.75rem;
+    }
+
+    &__controls{
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content:space-between;
+        margin-inline: 0.8rem;
+    }
+
+    &__button{
+        background-color: var(--color-white);
+        padding: 0.75rem;
+        border-radius: 50%;
+        
+        @include a.hover{
+            color: var(--color-orange);
+        }
+    }
+
+    &__button-icon{
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &__thumbs{
+        display: none;
+        justify-content: center;
+        gap: 1.8rem;
+        margin-block-start: 1.875rem;
+    }
+
+    &__thumb{
+        width: 5.625rem;
+        border-radius: 0.625rem;
+        overflow: hidden;
+        
+        &[aria-pressed="true"]{
+            outline: 2px solid var(--color-orange);
+
+            .c-product-gallery__thumb-image{
+                opacity: .3;
+            }
+        }
+
+    &:focus-visible{
+        outline-offset: 0.325rem;
+        }
+    }
+
+    &__thumb-image, &__open-lightbox{
+        transition: opacity 200ms ease-in;
+
+        @include a.hover{
+            opacity: .5;
+        }
+        @include a.reduced-motion;
+    }
+
+   &__open-lightbox{
+        display: none;
+        outline-offset: 0.325rem;
+        border-radius: 0.75rem;
+    }
+
+    
+    @include a.breakpoint(50rem){
+        &__mobile-image{
+            display: none;
+        }
+
+        &__open-lightbox{
+        display: block;
+        }
+
+        &__thumbs{
+            display: flex;
+        }
+    }    
+}

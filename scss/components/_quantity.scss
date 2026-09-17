@@ -1,0 +1,29 @@
+@use '../abstracts/' as a;
+.c-quantity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 0;
+    background-color: var(--color-light-grayish-blue);
+    border-radius: 0.5rem;
+
+    &__button{
+        padding: 1.25rem;
+
+        @include a.hover{
+            opacity: .7;
+        }
+    }
+
+    &__number{
+        @include a.remove-number-spinners;
+
+        width: 2.75rem;
+        padding-block: 0.815em;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        background-color: inherit;
+    }
+}

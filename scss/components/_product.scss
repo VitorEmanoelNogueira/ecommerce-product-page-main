@@ -1,0 +1,127 @@
+@use '../abstracts/' as a;
+
+.c-product{
+    max-width: 25rem;
+    margin-inline: auto;
+
+    &__details{
+        padding: 1rem 1.5rem;
+    }
+
+    &__company{
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+    }
+
+    &__name{
+        margin-block-start: 0;
+        color: var(--color-very-dark-blue);
+        line-height: 1.1;
+    }
+
+    &__description{
+        color: var(--color-dark-grayish-blue);
+    }
+
+    &__cart-actions{
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+        margin-block-start: 1.25rem;
+    }
+
+    &__prices{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+
+    &__actual-price{
+        font-size: 2rem;
+        color: var(--color-very-dark-blue);
+        vertical-align: center;
+        margin: 0;
+    }
+
+    &__promotion-tag{
+        display: inline-block;
+        font-size: 1rem;
+        margin-inline-start: 0.625rem;
+        padding: 0.15em 0.625em;
+        border-radius: 0.5rem;
+        vertical-align: middle;
+        color: var(--color-white);
+        background-color: var(--color-black);
+    }
+
+    &__full-price{
+        text-decoration: line-through;
+    }
+
+    &__submit-quantity{
+        box-shadow: 0 1.325rem 1.5rem -0.5rem hsl(26 100% 55% / 20%);
+    }
+
+    @include a.breakpoint(50rem){
+        max-width: min-content;
+
+        .c-product-gallery__button{
+            display: none;
+        }
+
+        &__details{
+            margin-block-end: 1.875rem;
+            padding-inline: 0;
+        }
+
+        &__company{
+            margin-block-end: 1rem;
+        }
+
+        &__name{
+            font-size: 2.75rem;
+        }
+
+        &__cart-actions{
+            flex-flow: row;
+            margin-block-start: 1.875rem;
+        }
+
+        &__prices{
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.3rem;
+        }
+
+        &__full-price{
+            margin: 0;
+        }
+
+        &__quantity{
+            width: 10.625rem;
+        }
+
+        &__submit-quantity{
+            width: 16.5625rem;
+        }
+    }
+
+    @include a.breakpoint(62.375rem){
+        max-width: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        gap: 3.125rem;
+
+        &__details{
+            padding-inline: 2rem;
+        }
+
+        &__name{
+            margin-block-end: 2.5rem;
+        }
+    }
+}

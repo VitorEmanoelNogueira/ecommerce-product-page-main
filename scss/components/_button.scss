@@ -1,0 +1,25 @@
+@use "../abstracts" as a;
+
+.c-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-orange);
+    font-weight: bold;
+    outline-offset: 0.325rem;
+    transition: opacity 200ms ease-in;
+    
+    @include a.hover{
+        opacity: .7;
+    }
+
+    &__icon{
+        display: inline;
+        margin-inline-end: 1rem;
+        width: 1.15rem;
+        height: 1.15rem;
+        fill: var(--color-black);
+    }
+}

@@ -1,0 +1,10 @@
+@use "./abstracts" as a;
+
+.l-conteiner {
+    min-block-size: 100svh;
+    margin-inline: auto;
+
+    @include a.breakpoint(50rem){
+        max-inline-size: min(calc(100% - 2rem), 69.375rem);
+    }
+}

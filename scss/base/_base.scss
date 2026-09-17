@@ -1,12 +1,13 @@
 body{
     min-height: 100svh;
     font: normal 1rem/1.5 "Kumbh Sans", sans-serif;
-    color: var(--color-grayish-blue);
+    color: var(--color-dark-grayish-blue);
 }
 
-img, svg {
+img, svg{
   display: block;
   max-inline-size: 100%;
+  block-size: auto;
 }
 
 ul, ol {
