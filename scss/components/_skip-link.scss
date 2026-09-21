@@ -20,6 +20,6 @@
   @include a.reduced-motion;
 
   @include a.forced-colors{
-    background: currentColor;
+    background-color: currentColor;
   }
 }

@@ -12,6 +12,8 @@
     cursor: pointer;
     @include a.outline-offset;
     transition: opacity 200ms ease-in;
+
+    @include a.reduced-motion;
     
     @include a.hover{
         opacity: .7;

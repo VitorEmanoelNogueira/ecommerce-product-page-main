@@ -1,4 +1,4 @@
-@use '../abstracts/mixins' as a;
+@use '../abstracts' as a;
 
 .c-header{
     display: flex;
@@ -66,8 +66,8 @@
     
     @include a.breakpoint(50rem){
         padding: 2rem 0;
-        margin-bottom: 5.625rem;
-        border-bottom: 1px solid hsl(220deg 14% 75% / 30%);
+        margin-block-end: 5.625rem;
+        border-block-end: 1px solid hsl(220deg 14% 75% / 30%);
         
         &__nav-open{
             display: none;
