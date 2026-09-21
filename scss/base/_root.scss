@@ -1,3 +1,5 @@
+@use '../abstracts/' as a;
+
 :root {
   /* Primary */
   --color-orange: hsl(26 100% 55%);
@@ -14,4 +16,10 @@
   /* Effects */
   --lightbox-background: hsl(0 0% 0% / 75%);
   
+}
+
+@include a.forced-colors {
+    :root {
+        --color-orange: Highlight;
+    }
 }

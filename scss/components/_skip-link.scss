@@ -2,7 +2,7 @@
 .c-skip-link {
   position: fixed;
   inset-block-start: 0;
-  translate: 0 -150%;
+  translate: 0 -100%;
 
   background-color: var(--color-orange);
   color: var(--color-black);
@@ -18,4 +18,8 @@
   }
 
   @include a.reduced-motion;
+
+  @include a.forced-colors{
+    background: currentColor;
+  }
 }

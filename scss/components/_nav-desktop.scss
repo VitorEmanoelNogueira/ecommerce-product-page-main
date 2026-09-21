@@ -10,9 +10,9 @@
 
     &__link {
         position: relative;
-        outline-offset: 0.325rem;
         color: var(--color-dark-grayish-blue);
         text-decoration: none;
+        @include a.outline-offset;
 
         &::after{
             position: absolute;

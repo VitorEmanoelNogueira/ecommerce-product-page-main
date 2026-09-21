@@ -5,14 +5,20 @@
     align-items: center;
     justify-content: center;
     padding: 1.25rem;
+    border: 1px solid transparent;
     border-radius: 0.5rem;
     background-color: var(--color-orange);
     font-weight: bold;
-    outline-offset: 0.325rem;
+    cursor: pointer;
+    @include a.outline-offset;
     transition: opacity 200ms ease-in;
     
     @include a.hover{
         opacity: .7;
+    }
+
+    @include a.forced-colors{
+        background-color: currentColor;
     }
 
     &__icon{
