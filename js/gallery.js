@@ -1,7 +1,6 @@
 const main = document.getElementById("main-content");
 const mainProductGallery = {
     currentSlideWrapper: main.querySelector("[data-current-slide]"),
-    status: main.querySelector("[data-gallery-status]"),
     images: main.querySelectorAll("[data-gallery-image]"),
     openLightbox: main.querySelector("[data-open-lightbox]"),
     nextButton: main.querySelector("[data-next-image]"),
@@ -14,7 +13,6 @@ const mainProductGallery = {
 const lightbox = document.getElementById("lightbox");
 const lightboxProductGallery = {
     currentSlideWrapper: lightbox.querySelector("[data-current-slide]"),
-    status: lightbox.querySelector("[data-gallery-status]"),
     image: lightbox.querySelector("[data-gallery-image]"),
     closeLightbox: lightbox.querySelector("[data-close-lightbox]"),
     nextButton: lightbox.querySelector("[data-next-image]"),
@@ -51,6 +49,7 @@ function changeImage(gallery, shiftIndex = 0, directIndex = null) {
 
     const actualImageIndex = Number(gallery.selectedThumb.dataset.selectImage) - 1;
 
+    // Wraps the index around when navigating past the first or last image
     if (shiftIndex > 0) {
         updateImage(gallery, ((actualImageIndex + shiftIndex) % (images.length)));
     } else {

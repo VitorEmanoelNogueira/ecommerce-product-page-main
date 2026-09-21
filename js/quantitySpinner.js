@@ -5,6 +5,7 @@ const quantitySpinner  = {
     increase: document.querySelector("[data-increase-quantity]"),
 }
 let announceTimer;
+let clearAnnouncementTimer;
 
 function getSpinnerValue(){
     return Number(quantitySpinner.quantity.value);
@@ -21,7 +22,7 @@ function increaseQuantity(){
 function decreaseQuantity(){
     const currentValue = getSpinnerValue();
 
-    if(currentValue == 0){
+    if(currentValue === 0){
         return;
     }
 
@@ -30,15 +31,21 @@ function decreaseQuantity(){
     announceValue(newValue);
 }
 
-function announceValue(newValue){
+function resetSpinnerValue(){
+    quantitySpinner.quantity.value = "0";
+}
+
+function announceValue(newValue) {
     clearTimeout(announceTimer);
+    clearTimeout(clearAnnouncementTimer);
 
     announceTimer = setTimeout(() => {
-    quantitySpinner.status.textContent = `Quantity: ${newValue}`;
+        quantitySpinner.status.textContent = `Quantity: ${newValue}`;
 
-        setTimeout(() => {
-            quantitySpinner.status.textContent = ``;
-        }, 200);
+        clearAnnouncementTimer = setTimeout(() => {
+            quantitySpinner.status.textContent = "";
+        }, 2000);
+        
     }, 300);
 }
 
@@ -47,4 +54,4 @@ function initQuantitySpinner(){
     quantitySpinner.decrease.addEventListener("click", decreaseQuantity);
 }
 
-export { quantitySpinner, getSpinnerValue, initQuantitySpinner };
+export { getSpinnerValue, resetSpinnerValue, initQuantitySpinner };

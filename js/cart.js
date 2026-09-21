@@ -1,4 +1,4 @@
-import { quantitySpinner, getSpinnerValue } from "./quantitySpinner.js";
+import { getSpinnerValue, resetSpinnerValue } from "./quantitySpinner.js";
 import { productFormStatus } from "./product.js";
 
 const cartButtonItemsNumber = document.querySelector("[data-cart-items-number]");
@@ -13,29 +13,30 @@ function addToCart(){
     cartQuantity = getSpinnerValue();
     
     populateCart();
+    updateCartButton();
+    resetSpinnerValue();
 
-    quantitySpinner.quantity.value = "0";
-    cartButtonItemsNumber.textContent = `${cartQuantity} items in cart`;
-    cartButtonCounter.textContent = `${cartQuantity}`;
     productFormStatus.textContent = `${cartQuantity} items added to cart`;
-    
     setTimeout(() => {
         productFormStatus.textContent = "";
-    }, 200)
+    }, 3000)
 }
 
 function populateCart(){
     if (cartQuantity === 0){
         cartProducts.innerHTML= `<p class="c-cart__text">Your cart is empty.</p>`;
+        cartCheckout.hidden = true;
         return
     }
+    
+    cartCheckout.hidden = false;
 
+    // This project only has one product
     if(cartProducts.querySelector("[data-cart-product]")){
         cartProducts.querySelector("[data-cart-quantity]").textContent = cartQuantity;
         cartProducts.querySelector("[data-cart-total]").textContent = `$${(125 * cartQuantity).toFixed(2)}`;
         return
     }
-
 
     cartProducts.innerHTML = `
      <div class="c-cart__product c-cart-product" data-cart-product>
@@ -66,17 +67,26 @@ function populateCart(){
         </button>
     </div>`
 
-    cartCheckout.hidden = false;
     cartProducts.querySelector("[data-delete-product]").addEventListener("click", removeProduct);
 }
 
 function removeProduct(){
     cartQuantity = 0;
-    cartProducts.innerHTML= `<p class="c-cart__text">Your cart is empty.</p>`;
-    cartCheckout.hidden = true;
+
+    populateCart();
+    updateCartButton();
+    cart.focus();
+}
+
+function updateCartButton(){
+    if (cartQuantity > 0){
+        cartButtonItemsNumber.textContent = `${cartQuantity} items in cart`;
+        cartButtonCounter.textContent = `${cartQuantity}`;
+        return
+    }
+
     cartButtonItemsNumber.textContent = "Cart is empty"
     cartButtonCounter.textContent = "";
-    cart.focus();
 }
 
 function initCart(){
