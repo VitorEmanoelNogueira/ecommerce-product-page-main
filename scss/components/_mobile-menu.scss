@@ -1,17 +1,37 @@
+@use '../abstracts' as a;
+
 .c-mobile-menu{
     width: min(100%, 15.625rem);
-    height: 100svh;
     max-height: none;
     margin: 0;
-    padding: 0.5rem 0.625rem;
+    padding: 0;
     border: 0;
+    background: none;
 
     &::backdrop{
         background-color: var(--lightbox-background);
     }
-
+    
     &__nav-close{
         padding: 1rem;
+        color: var(--color-dark-grayish-blue);
+    }
+
+    &__nav{
+        height: 100svh;
+        padding: 0.5rem 0.625rem;
+        border: 1px solid transparent;
+        background-color: var(--color-white);
+        transition: transform 250ms ease-out;
+        @include a.reduced-motion; 
+
+        @starting-style{
+            transform:translateX(-100%);
+        }
+    }
+
+    &.is-closing &__nav {
+        transform: translateX(-100%);
     }
 
     &__list{
