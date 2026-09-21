@@ -1,3 +1,5 @@
+@use '../abstracts/' as a;
+
 .c-cart-product{
     display: grid; 
     grid-template-columns: auto 3fr auto;
@@ -36,6 +38,11 @@
         grid-column: 3 / 4;
         grid-row: 1 / 3;
         padding: 0.25rem;
+        color: var(--color-grayish-blue);
+
+        @include a.hover{
+            color: var(--color-dark-grayish-blue);
+        }
     }
 
     &__delete-icon{

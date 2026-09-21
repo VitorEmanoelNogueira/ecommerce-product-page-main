@@ -10,10 +10,12 @@
     &__nav-open{
         margin-block-start: 0.25em;
         padding: 0.85em;
+        color: var(--color-dark-grayish-blue);
     }
 
     &__logo-link{
-        outline-offset: 0.325rem;
+        @include a.outline-offset;
+        color: var(--color-very-dark-blue);
     }
 
     &__actions{
@@ -31,6 +33,10 @@
         position: relative;
         padding: 0.625rem;
         color: var(--color-dark-grayish-blue);
+
+        @include a.hover{
+            color: var(--color-black);
+        }
     }
 
     &__cart-counter{
