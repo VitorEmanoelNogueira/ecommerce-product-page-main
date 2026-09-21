@@ -17,6 +17,16 @@
         border-radius: 0.75rem;
     }
 
+    &__current-slide.transition-start{
+        opacity: 0;
+    }
+  
+    &__current-slide.transition-end{
+        opacity: 1;
+        transition: opacity 200ms ease-out;
+        @include a.reduced-motion;
+    }
+
     &__controls{
         position: absolute;
         inset-inline: 0;
@@ -63,7 +73,7 @@
         }
 
     &:focus-visible{
-        outline-offset: 0.325rem;
+        @include a.outline-offset;
         }
     }
 
@@ -78,7 +88,7 @@
 
    &__open-lightbox{
         display: none;
-        outline-offset: 0.325rem;
+        @include a.outline-offset;
         border-radius: 0.75rem;
     }
 
