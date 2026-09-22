@@ -748,10 +748,15 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid transparent;
+  border: none;
   padding: 0;
   background-color: var(--color-light-grayish-blue);
   border-radius: 0.5rem;
+}
+@media (forced-colors: active) {
+  .c-quantity {
+    border: 1px solid canvasText;
+  }
 }
 .c-quantity__button {
   padding: 1.25rem;
@@ -783,7 +788,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 0.5rem;
   background-color: var(--color-orange);
   font-weight: bold;
@@ -803,7 +808,8 @@ button {
 }
 @media (forced-colors: active) {
   .c-button {
-    background-color: currentColor;
+    background-color: ButtonFace;
+    border: 1px solid canvasText;
   }
 }
 .c-button__icon {

@@ -3,10 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid transparent;
+    border: none;
     padding: 0;
     background-color: var(--color-light-grayish-blue);
     border-radius: 0.5rem;
+
+    @include a.forced-colors{
+        border: 1px solid canvasText;
+    }
 
     &__button{
         padding: 1.25rem;
@@ -16,7 +20,6 @@
             opacity: .7;
         }
     }
-
 
     &__number{
         @include a.remove-number-spinners;
