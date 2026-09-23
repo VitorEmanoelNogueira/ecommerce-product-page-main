@@ -10,16 +10,17 @@ const cartCheckout = cart.querySelector("[data-checkout-button]");
 let cartQuantity = 0;
 
 function addToCart(){
-    cartQuantity += getSpinnerValue();
+    const spinnerQuantity = getSpinnerValue();
+    cartQuantity += spinnerQuantity;
     
     populateCart();
     updateCartButton();
     resetSpinnerValue();
 
-    productFormStatus.textContent = `${cartQuantity} items added to cart`;
+    productFormStatus.textContent = `${spinnerQuantity} items added to cart, ${cartQuantity} in total.`;
     setTimeout(() => {
         productFormStatus.textContent = "";
-    }, 3000)
+    }, 5000)
 }
 
 function populateCart(){
@@ -35,6 +36,7 @@ function populateCart(){
     if(cartProducts.querySelector("[data-cart-product]")){
         cartProducts.querySelector("[data-cart-quantity]").textContent = cartQuantity;
         cartProducts.querySelector("[data-cart-total]").textContent = `$${(125 * cartQuantity).toFixed(2)}`;
+        cartProducts.querySelector("[data-cart-price-announcement]").textContent = `${cartQuantity} items of $125.00, $${(125 * cartQuantity).toFixed(2)} in total.`
         return
     }
 
@@ -51,7 +53,7 @@ function populateCart(){
                 $${(125 * cartQuantity).toFixed(2)}
             </b>
         </p>
-        <p class="u-sr-only">${cartQuantity} items of $125.00, $${(125 * cartQuantity).toFixed(2)} in total.</p>
+        <p class="u-sr-only" data-cart-price-announcement>${cartQuantity} items of $125.00, $${(125 * cartQuantity).toFixed(2)} in total.</p>
 
         <button class="c-cart-product__delete" aria-label="Remove Product from Cart" data-delete-product>
             <svg 
