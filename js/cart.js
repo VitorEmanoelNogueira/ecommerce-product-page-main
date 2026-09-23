@@ -10,7 +10,7 @@ const cartCheckout = cart.querySelector("[data-checkout-button]");
 let cartQuantity = 0;
 
 function addToCart(){
-    cartQuantity = getSpinnerValue();
+    cartQuantity += getSpinnerValue();
     
     populateCart();
     updateCartButton();
